@@ -12,10 +12,11 @@ const Navbar = () => {
 
   return (
     <nav className='navbar'>
-      <div className="nav-logo">
-        <img src={logo} alt="logo" />
-        <p>SHOPPER</p>
-      </div>
+   <div className="nav-logo">
+  <img src={logo} alt="logo" />
+  <Link to={'/'} className="nav-logo-text">SHOPPER</Link>
+</div>
+
 
       <ul className={isMobile ? "nav-menu-mobile" : "nav-menu"}>
         {menuItems.map((item, idx) => (

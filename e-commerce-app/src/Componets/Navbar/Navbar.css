@@ -22,9 +22,10 @@
 .nav-logo img {
   width: 40px;
 }
-.nav-logo p {
+.nav-logo-text {
   font-size: 28px;
   font-weight: 700;
+  text-decoration: none;
   color: #333;
 }
 
