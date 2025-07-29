@@ -1,42 +1,96 @@
-.shopcategory-banner{
-    display: block;
-    margin: 30px auto ; 
-    width: 82% ;
-}
-.shopcategory-indexSort{
-    display: flex;
-    margin: 40px 100px;
-    justify-content:space-between;
-    align-items: center;
-    gap: 0PX;
-}
-.shopcategory-sort{
-padding: 10px 20px;
-border-radius: 40px;
-border: 1px solid #888;
-}
-.shopcategory-sort p sapn{
-font-weight: 600;
-}
-.shopcategory-products{
-margin: 20px 150px;
-justify-content: center;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
-align-items: center;
-gap: 30px;
+.shopcategory-banner {
+  display: block;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1100px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
-.shopcategory-loadmore{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 150px auto;
-    width: 233px;
-    height: 50px;
-    border-radius: 75px;
-    background: #ededed;
-    color: #787878;
-    font-size: 18px;
-    font-weight: 500;
+.shopcategory-indexSort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 5%;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.shopcategory-sort {
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 1px solid #888;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.shopcategory-indexSort p span {
+  font-weight: 600;
+}
+
+.shopcategory-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 40px 5%;
+}
+
+/* Responsive Grid Columns */
+@media (max-width: 1024px) {
+  .shopcategory-products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .shopcategory-products {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 4%;
+  }
+
+  .shopcategory-sort {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shopcategory-products {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 20px 3%;
+  }
+
+  .shopcategory-indexSort {
+    margin: 30px 3%;
+    gap: 15px;
+  }
+
+  .shopcategory-sort {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+.shopcategory-loadmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px auto;
+  width: 200px;
+  height: 45px;
+  border-radius: 75px;
+  background: #ededed;
+  color: #787878;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.shopcategory-loadmore:hover {
+  background: #ccc;
+  color: #444;
 }

@@ -1,42 +1,52 @@
-import React from 'react'
-import { useState } from 'react'
-import './Navbar.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
-import { Link } from 'react-router-dom'
-
-
-
+import React, { useState } from 'react';
+import './Navbar.css';
+import logo from '../Assets/logo.png';
+import cart_icon from '../Assets/cart_icon.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [menu, setMenu] = useState("shop");
+  const [isMobile, setIsMobile] = useState(false);
 
-  const [menu, setMneu] = useState("shop")
-
-
-
-
-
-
+  const menuItems = ["shop", "mens", "womens", "kids"];
 
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
       <div className="nav-logo">
-        <img src={logo} alt="" />
+        <img src={logo} alt="logo" />
         <p>SHOPPER</p>
       </div>
-      <ul className="nav-menu">
-        <li onClick={() => { setMneu("shop") }}> <Link style={{ textDecoration: 'none' }} to='/'>Shop</Link>{menu === "shop" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMneu("mens") }}><Link style={{ textDecoration: 'none' }} to='/mens'>Men</Link>{menu === "mens" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMneu("womens") }}><Link style={{ textDecoration: 'none' }} to='/womens'>Women</Link>{menu === "womens" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMneu("kids") }}><Link style={{ textDecoration: 'none' }} to='/kids'>Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
-      </ul>
-      <div className="nav-login-cart">
-        <Link to='/login'><button>Login</button></Link>
-        <Link to='cart'><img src={cart_icon} alt="" /></Link>
-        <div className="nav-cart-count">0</div>
-      </div>
-    </div>
-  )
-}
 
-export default Navbar
+      <ul className={isMobile ? "nav-menu-mobile" : "nav-menu"}>
+        {menuItems.map((item, idx) => (
+          <li
+            className={menu === item ? "active" : ""}
+            key={idx}
+            onClick={() => {
+              setMenu(item);
+              setIsMobile(false);
+            }}
+          >
+            <Link to={`/${item === "shop" ? "" : item}`}>
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="nav-login-cart">
+        <Link to='/login'><button className="glow-button">Login</button></Link>
+        <Link to='/cart'><img src={cart_icon} alt="cart" /></Link>
+        <div className="nav-cart-count">0</div>
+
+        <div className="menu-toggle" onClick={() => setIsMobile(!isMobile)}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

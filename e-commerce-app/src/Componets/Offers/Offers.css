@@ -1,46 +1,103 @@
 .offers {
-    width: 65%;
-    height: 60vh;
-    display: flex;
-    margin: auto;
-    padding: 0 140px;
-    margin-bottom: 150px;
-    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+  width: 90%;
+  max-width: 1200px;
+  min-height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 120px;
+  padding: 40px 5%;
+  background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  gap: 40px;
+  margin-top: 30px;
 }
 
 .offers-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 280px;
 }
 
 .offers-left h1 {
-    color: #171717;
-    font-size: 80px;    
-    font-weight: 600;
+  color: #171717;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.1;
 }
-.offers-left p{
-    color: #171717;
-    font-size: 22px;
-    font-weight: 600;
+
+.offers-left p {
+  color: #171717;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
 }
-.offers-left button{
-    width: 282px;
-    height: 70px;
-    border-radius: 35px;
-    background-color: #ff4141;
-    border: none;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 500;
-    margin-top: 30px;
-    cursor: progress;
+
+.offers-left button {
+  width: fit-content;
+  padding: 16px 40px;
+  border-radius: 35px;
+  background-color: #ff4141;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-.offers-right{
-    flex: 1;
-    display: flex;
+
+.offers-left button:hover {
+  background-color: #e63939;
+}
+
+.offers-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 280px;
+}
+
+.offers-right img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .offers {
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-top: 50px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .offers-left h1 {
+    font-size: 40px;
+  }
+
+  .offers-left p {
+    font-size: 16px;
+  }
+
+  .offers-left button {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+
+  .offers-right {
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .offers-right img {
+    max-width: 300px;
+  }
 }

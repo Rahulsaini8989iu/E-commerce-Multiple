@@ -1,21 +1,58 @@
-import React from 'react'
-import './DescriptionBox.css'
+import React, { useState } from 'react';
+import './DescriptionBox.css';
 
 const DescriptionBox = () => {
+  const [activeTab, setActiveTab] = useState('description');
+
   return (
     <>
       <div className="descriptionBox">
         <div className="descriptionbox-navigator">
-        <div className="descriptionbox-nav-box">Description</div>
-        <div className="descriptionbox-nav-box fade">Reviews(122)</div>
+          <div
+            className={`descriptionbox-nav-box ${activeTab === 'description' ? 'active' : 'fade'}`}
+            onClick={() => setActiveTab('description')}
+          >
+            Description
+          </div>
+          <div
+            className={`descriptionbox-nav-box ${activeTab === 'reviews' ? 'active' : 'fade'}`}
+            onClick={() => setActiveTab('reviews')}
+          >
+            Reviews (122)
+          </div>
         </div>
-       <div className="descriptionbox-description">
-        <p>"Welcome to [SHOPPER], your one-stop destination for the latest in fashion. We offer a wide range of clothing, from trendy casual wear to elegant pieces for special occasions. Our collection is designed  to provide high-quality, comfortable, and stylish options for every season. Shop with ease and enjoy fast shipping, excellent customer service, and a seamless shopping experience. "</p>
-        <p>"Welcome to [SHOPPER], where style meets comfort. Explore our wide range of fashion-forward clothing, from casual essentials to special occasion pieces. Enjoy quality, versatility, and fast shipping-all in one place!"</p>
-       </div>
+
+        <div className="descriptionbox-description">
+          {activeTab === 'description' ? (
+            <>
+              <p>
+                "Welcome to <strong>SHOPPER</strong>, your one-stop destination for the latest in fashion. We offer a wide range of clothing, from trendy casual wear to elegant pieces for special occasions."
+              </p>
+              <p>
+                "Explore our collection designed to provide high-quality, comfortable, and stylish options for every season. Enjoy fast shipping, excellent customer service, and a seamless shopping experience."
+              </p>
+            </>
+          ) : (
+            <>
+              <h3>User Reviews</h3>
+              <div className="review">
+                <strong>Rahul Saini</strong> <span>⭐⭐⭐⭐⭐</span>
+                <p>Great quality and fast delivery. Totally recommended!</p>
+              </div>
+              <div className="review">
+                <strong>Sneha Kapoor</strong> <span>⭐⭐⭐⭐</span>
+                <p>Love the design and material. Will shop again.</p>
+              </div>
+              <div className="review">
+                <strong>Amit Verma</strong> <span>⭐⭐⭐</span>
+                <p>Good value for money, but sizing was a bit off.</p>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DescriptionBox
+export default DescriptionBox;

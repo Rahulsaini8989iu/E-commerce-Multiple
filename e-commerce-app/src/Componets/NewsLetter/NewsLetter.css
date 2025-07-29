@@ -1,53 +1,117 @@
-.newsletter{
-    width: 65%;
-    height: 40vh;
-    display: flex;
+.newsletter {
+  width: 90%;
+  max-width: 900px;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 80px auto;
+  padding: 30px 5%;
+  background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+  gap: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.newsletter h1 {
+  color: #333;
+  font-size: clamp(24px, 5vw, 42px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.newsletter p {
+  color: #555;
+  font-size: clamp(14px, 3vw, 18px);
+}
+
+.newsletter div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  width: 100%;
+  max-width: 730px;
+  height: 65px;
+  border-radius: 80px;
+  border: 1px solid #e3e3e3;
+  padding: 0 10px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.newsletter input {
+  flex: 1;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  color: #616161;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
+  min-width: 0;
+}
+
+.newsletter div button {
+  min-width: 140px;
+  height: 100%;
+  border: none;
+  border-radius: 80px;
+  background: black;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding: 0 20px;
+}
+
+.newsletter div button:hover {
+  background: #333;
+}
+
+/* ✅ Tablet */
+@media (max-width: 768px) {
+  .newsletter div {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: 0 140px;
-    margin-bottom: 150px;
-    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
-    gap: 30px;
-   
+    height: auto;
+    padding: 10px;
+    gap: 12px;
+    border-radius: 24px;
+  }
 
+  .newsletter input {
+    margin: 0;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .newsletter div button {
+    width: 100%;
+    height: 50px;
+  }
 }
 
-.newsletter h1{
-    color: #454545;
-    font-size: 49px;
-    font-weight: 600;
-}
-.newsletter p{
-    color: #454545;
-    font-size: 20px;
-}
-.newsletter div{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    width: 730px;
-    height: 70px;
-    border-radius: 80px;
-    border: 1px solid #e3e3e3;
-}
-.newsletter input{
-    width: 500px;
-    margin-left: 30px;
-    border: none;
-    outline: none;
-    color: #616161;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-family: 16px;
-}
-.newsletter div button{
-    width: 210px;
-    height: 70px;
-    border-radius: 80px;
-    background: black;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+/* ✅ Small Phones (e.g. iPhone SE) */
+@media (max-width: 420px) {
+  .newsletter {
+    padding: 20px 4%;
+    gap: 18px;
+  }
+
+  .newsletter div {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .newsletter input {
+    font-size: 14px;
+  }
+
+  .newsletter div button {
+    font-size: 14px;
+    padding: 0 16px;
+  }
 }
